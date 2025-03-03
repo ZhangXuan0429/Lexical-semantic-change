@@ -1,5 +1,5 @@
-# Lexical-semantic-evolution
-This repository contains the analytical codes and diachronic semantic data for the paper "***Stochastic modeling of socio-cultural influences on the lexical semantic evolution***".
+# Lexical-semantic-change
+This repository contains the analytical codes and diachronic semantic data for the paper "***Stochastic modeling of socio-cultural influences on lexical semantic change***".
 
 ## Diachronic Semantic Data
 The diachronic semantic data are stored in an RData file named **"polysemous_data.Rdata"**. For each word, e.g. ***"entertain"***, we give its diachronic sense information as demonstrated in the following structure:
