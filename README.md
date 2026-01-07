@@ -7,7 +7,7 @@ This repository contains the diachronic semantic data and analytical codes for t
 
 
 - **`polysemous_data.Rdata`**:  
-The Rdata format of the `diachronic_meaning_change.xlsx` dataset. It specifically provides the proportion trajectories for the **dominant sense** and **alternatives**, designed to be directly read and processed by the SDE Modeling code.
+The Rdata format of the `diachronic_meaning_change.xlsx` dataset. It specifically provides the proportion trajectories for the **initial dominant sense** and **alternatives**, designed to be directly read and processed by the SDE Modeling code.
 
   Each entry (e.g., `polysemous_data$entertain`) is a list with:
   - `word`: the target word  
