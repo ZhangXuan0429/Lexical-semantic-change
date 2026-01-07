@@ -186,8 +186,8 @@ remotes::install_github("ZhangXuan0429/r.SDE.Bayesian")
 
 
 # Method 2: Download ZIP and Install Locally
-# Download the ZIP file from GitHub first, then:
-remotes::install_local("C:/path/to/r.SDE.Bayesian-main.zip", force = TRUE)
+# Download the ZIP file from GitHub first, then extract the ZIP file.
+remotes::install_local("yourpath/r.SDE.Bayesian-main", force = TRUE, upgrade = "never")
 
 # Load the package
 library(r.SDE.Bayesian)
