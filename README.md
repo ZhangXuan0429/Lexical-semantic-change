@@ -261,7 +261,7 @@ chain_rep <- sde_mcmc_fit(
   log_cond_pdf = sde_log_cond_pdf_replica
 )
 
-par_mean_rep <- colMeans(tail(chain_rep, 2000))
-par_mean_rep
+par_rep <- colMeans(tail(chain_rep, 2000))
+par_rep
 ```
 ---
