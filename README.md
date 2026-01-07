@@ -1,16 +1,22 @@
 # Lexical-semantic-change  
 This repository contains the diachronic semantic data and analytical codes for the paper "***Stochastic modeling of lexical semantic competition in words***".  
-## Data Description
+## Data Description  
+
+- **`diachronic_meaning_change.xlsx`**:  
+  A diachronic semantic dataset constructed in this study, containing proportion trajectories for 14,347 senses across 3,168 polysemous words from 1810 to 2009.
+
+
 - **`polysemous_data.Rdata`**:  
-  An R data object containing two-sense diachronic sense-proportion trajectories for polysemous words.  
+The Rdata format of the `diachronic_meaning_change.xlsx` dataset. It specifically provides the proportion trajectories for the **dominant sense** and **alternatives**, designed to be directly read and processed by the SDE Modeling code.
+
   Each entry (e.g., `polysemous_data$entertain`) is a list with:
-    - `word`: the target word  
-  - `senses`: OED-defined senses, including sense definitions and raw yearly sense proportions  
-  - `n_senses`: number of senses (here, 2)  
+  - `word`: the target word  
+  - `senses`: yearly sense proportions (x: year, y: proportion) for each sense
+  - `n_senses`: number of senses 
   - `df`: a three-column data frame used for modeling, with columns:
     - `year`: time index (strictly increasing)
-    - `sense1`: proportion trajectory for sense 1
-    - `sense2`: proportion trajectory for sense 2  
+    - `sense1`: proportion trajectory for the initial dominant sense
+    - `sense2`: proportion trajectory for alternative senses  
     The simplex constraint `sense1 + sense2 = 1` holds at each time point.
 
   Example structure:
@@ -22,9 +28,6 @@ $word
 
 $senses
 $senses$entertain_1_verb_1
-$senses$entertain_1_verb_1$definition     # Lexical definition source: Oxford English Dictionary (OED)
-[1] "provide (someone) with amusement or enjoyment."
-
 $senses$entertain_1_verb_1$x     # Year information with the time interval ∆t = 1
   [1] 1820 1821 1822 1823 1824 1825 1826 1827 1828 1829 1830 1831 1832 1833 1834
  [16] 1835 1836 1837 1838 1839 1840 1841 1842 1843 1844 1845 1846 1847 1848 1849
@@ -41,9 +44,6 @@ $senses$entertain_1_verb_1$y     # The proportion of the sense at each time iner
 
 
 $senses$entertain_1_verb_2
-$senses$entertain_1_verb_2$definition
-[1] "give attention or consideration to (an idea or feeling)"
-
 $senses$entertain_1_verb_2$x
   [1] 1820 1821 1822 1823 1824 1825 1826 1827 1828 1829 1830 1831 1832 1833 1834
  [16] 1835 1836 1837 1838 1839 1840 1841 1842 1843 1844 1845 1846 1847 1848 1849
@@ -79,10 +79,6 @@ $df     # Data after cubic spline interpolation, where sense1 denotes dominant s
 # ℹ 160 more rows
 # ℹ Use `print(n = ...)` to see more rows
 ```
-
-- **`diachronic_meaning_change.xlsx`**:  
-  A diachronic semantic dataset constructed in this study, containing proportion trajectories for 14,347 senses across 3,168 polysemous words from 1810 to 2009.
-
 - **`diachronic_change_statistics.xlsx`**:  
   Provides frequency/semantic change degrees and key parameters from the semantic competition model for the 3168 polysemous words: 
   - `freq_change`: frequency change
