@@ -218,12 +218,10 @@ lp <- apply(chain, 1, function(p) sde_log_posterior(
 ))
 
 # Geweke diagnostic on last 2000 samples
-geweke <- coda::geweke.diag(tail(lp, 2000))
-print(geweke)
+(geweke <- coda::geweke.diag(tail(lp, 2000)))
 
 # Posterior mean of last 2000 samples
-par_lv <- colMeans(tail(chain, 2000))
-par_lv
+(par_lv <- colMeans(tail(chain, 2000)))
 ```
 **Step 4. Solve (simulate) the fitted SDE trajectory using `Sim.DiffProc`.**  
 ```r
@@ -261,7 +259,6 @@ chain_rep <- sde_mcmc_fit(
   log_cond_pdf = sde_log_cond_pdf_replica
 )
 
-par_rep <- colMeans(tail(chain_rep, 2000))
-par_rep
+(par_rep <- colMeans(tail(chain_rep, 2000)))
 ```
 ---
