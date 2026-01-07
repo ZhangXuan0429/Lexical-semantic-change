@@ -177,10 +177,13 @@ In this repository, an example object is available as:
 **Step 1. Install the `r.SDE.Bayesian` package locally.**
 
 ```r
-# From the directory that contains r.SDE.Bayesian/
-# 或者使用 devtools
-install.packages("devtools")  # 如果还没有安装
-devtools::install_local("~/r.SDE.Bayesian-main.zip")
+# Install remotes package
+install.packages("remotes")
+
+# Download the ZIP file from GitHub first, then:
+remotes::install_local("C:/path/to/r.SDE.Bayesian-main.zip", force = TRUE)
+
+# Load the package
 library(r.SDE.Bayesian)
 ```
 
