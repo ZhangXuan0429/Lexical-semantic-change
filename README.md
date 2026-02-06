@@ -1,5 +1,5 @@
 # Lexical-semantic-change  
-This repository contains the diachronic semantic data and analytical codes for the paper "***Stochastic modeling of lexical semantic competition in words***".  
+This repository contains the diachronic semantic data and analytical codes for the paper "***Stochastic dynamic modeling of semantic competition reveals the co-evolution of language and culture***".  
 ## Data Description  
 
 - **`diachronic_meaning_change.xlsx`**:  
