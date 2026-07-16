@@ -1,5 +1,5 @@
 # Lexical-semantic-change  
-This repository contains the diachronic semantic data and analytical codes for the paper "***Stochastic dynamic modeling of semantic competition reveals the co-evolution of language and culture***".  
+This repository contains the diachronic semantic data and analytical codes for the paper "***Stochastic dynamics reveal sociocultural influences on lexical semantic change***".  
 ## Data Description  
 
 - **`diachronic_meaning_change.xlsx`**:  
@@ -93,9 +93,25 @@ $df     # Data after cubic spline interpolation, where sense1 denotes dominant s
 - **`external_factors.xlsx`**:  
   Data for driving force analysis, as introduced in Supplementary Discussion Section 1.
 
-## Code for Word Sense Disambiguation 
+## Code for Word Sense Disambiguation
 
-See code in `label_sense`.
+The word-sense tagging code used in this study is provided in the `label_sense` directory.
+
+### Scope of this module
+
+The `label_sense` module provides the scripts and instructions used in this study for BERT-based tagging of polysemous-word occurrences. This step is used to construct the diachronic sense trajectories released in `diachronic_meaning_change.xlsx` and `polysemous_data.Rdata`.
+
+Because the original OED example sentences and COHA corpus texts are licensed resources, they are not redistributed in this repository. Users who wish to rerun the preprocessing from raw text need access to these resources.
+
+### Method overview
+
+The word-sense tagging procedure follows the BERT-based sense representation and identification framework described by Hu et al. (2019).
+
+For each target word sense, example sentences from the Oxford English Dictionary (OED) are encoded using the uncased BERT-Base model. The contextualized token embeddings of the target word from the final hidden layer are averaged to obtain a sense representation.
+
+For each COHA sentence containing a target word, the contextualized embedding of the target-word occurrence is extracted using the same BERT model. The sentence occurrence is then assigned to the OED-defined sense with the highest cosine similarity between the contextualized token embedding and the OED-derived sense representations.
+
+This procedure produces yearly sense counts and sense proportions for each target word. The resulting diachronic sense trajectories are released in this repository and used as input for downstream SDE modeling.
 
 ### Prerequisites
 
