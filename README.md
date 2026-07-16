@@ -178,7 +178,7 @@ In this repository, an example object is available as:
 install.packages("remotes")
 
 # Install r.SDE.Bayesian from GitHub
-remotes::install_github("ZhangXuan0429/r.SDE.Bayesian")
+remotes::install_github("xz04290116/r.SDE.Bayesian")
 
 
 # Method 2: Download ZIP and Install Locally
